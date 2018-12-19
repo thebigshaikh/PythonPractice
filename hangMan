@@ -1,0 +1,31 @@
+import random
+
+list1=[]                                    #If letter matches it is appended in this list
+userList=[]                                 #List for letters guessed by user
+wordlist=[]                                 #List for words in the file
+
+f=open('hangdata','r')
+for i in f.readlines():
+    wordlist.append(i.split())
+
+randomNum=random.randint(0,len(wordlist))
+str1=''.join(wordlist[randomNum])
+list1=list(str1)
+list12=['_'] * (len(list1))
+print(list12)
+count=1
+while True:
+    count += 1
+    if '_'in list12:
+        uinput = str(input('Enter your guess letter'))
+        userList.append(uinput)
+        if userList.count(uinput) > 1:
+            print(" You've already tried this letter earlier")
+        else:
+            for index in range(len(list1)):
+                if list1[index] == uinput:
+                    list12[index] = uinput
+            print(list12)
+    else:
+        print(" Congrats you're done!")
+        break

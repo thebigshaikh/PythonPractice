@@ -1,0 +1,27 @@
+def check(grid):
+    for x in range(3):
+        row=([grid[x][0],grid[x][1],grid[x][2]])
+        print(row)
+        set_r=set(row)
+        if len(set_r) == 1 and grid[x][0] != 0:
+            rlist=list(set_r)
+            print(" Winner is {} by columns".format(rlist[x]))
+
+    for y in range(3):
+        column=[grid[0][y],grid[1][y],grid[2][y]]
+        set_c=set(column)
+
+        if len(set_c)==1 and grid[0][y] != 0:
+            relist=list(set_c)
+            print(" Winner is {} by columns".format(relist[y]))
+
+    if  grid[0][0] == grid [1][1] == grid[2][2] or grid[0][2] == grid [1][1] == grid[2][0] and grid[1][1] != 0:
+        print(" Winner is",grid[1][1])
+    else:
+        print("We have no winner")
+
+grid1=[[1, 1, 1],
+	   [2, 0, 0],
+	   [2, 1, 1]]
+
+check(grid1)
